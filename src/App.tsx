@@ -1,15 +1,14 @@
 import { Provider, useSelector } from 'react-redux';
 import './App.css';
 
-import { store } from './store';
+import { store } from './store/index';
 
-import GameView from './views/Game';
+import { GameView } from './views';
 
 function App() {
 	return (
 		<Provider store={store}>
 			<div className="App">
-				<h1>Boring Space Game</h1>
 				<GameView />
 			</div>
 		</Provider>

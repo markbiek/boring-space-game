@@ -3,6 +3,12 @@ import { useEffect } from 'react';
 import { setView, currentView, currentSubview } from '../store/reducers/view';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 
+import { StartView } from './';
+
+interface ViewComponents {
+	[index: string]: JSX.Element;
+}
+
 export default function GameView() {
 	const view = useAppSelector(currentView);
 	const subview = useAppSelector(currentSubview);
@@ -12,5 +18,13 @@ export default function GameView() {
 		dispatch(setView('start'));
 	}, []);
 
-	return <h2>Game</h2>;
+	const viewComponents: ViewComponents = {
+		start: <StartView subview={subview} />,
+	};
+
+	if (!viewComponents.hasOwnProperty(view)) {
+		return <h1>Error: View {view} not found.</h1>;
+	}
+
+	return viewComponents[view];
 }
