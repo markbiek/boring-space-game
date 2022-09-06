@@ -2,6 +2,7 @@ import { useRef } from 'react';
 
 import { useAppDispatch } from '../store/hooks';
 import { setView } from '../store/reducers/view';
+import { setPlayerName, setShipName } from '../store/reducers/player';
 
 import { ViewProps } from '../types';
 
@@ -20,7 +21,13 @@ export default function StartView({ subview }: ViewProps) {
 				onSubmit={(e) => {
 					e.preventDefault();
 
+					if (!playerNameRef.current || !shipNameRef.current) {
+						return;
+					}
+
 					dispatch(setView('solar-system'));
+					dispatch(setPlayerName(playerNameRef.current.value));
+					dispatch(setShipName(shipNameRef.current.value));
 				}}
 			>
 				<div className="input-group">

@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import viewReducer from './reducers/view';
+import { playerReducer, viewReducer } from './reducers';
 
 export const store = configureStore({
 	reducer: {
+		player: playerReducer,
 		view: viewReducer,
 	},
 });
