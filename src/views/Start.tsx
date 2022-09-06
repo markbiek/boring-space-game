@@ -6,10 +6,14 @@ import { setPlayerName, setShipName } from '../store/reducers/player';
 
 import { ViewProps } from '../types';
 
+import { pickTradeItems } from '../utils';
+
 export default function StartView() {
 	const playerNameRef = useRef<HTMLInputElement>(null);
 	const shipNameRef = useRef<HTMLInputElement>(null);
 	const dispatch = useAppDispatch();
+
+	console.log('Trade Items:', pickTradeItems());
 
 	return (
 		<div className="view">
