@@ -1,3 +1,7 @@
+export interface State {
+
+}
+
 export interface Ship {
 	fuel: number;
 	fuel_size: number;
