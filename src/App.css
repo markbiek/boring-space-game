@@ -72,3 +72,16 @@ input[type=text] {
 	font-size: 1.125rem;
 	font-weight: 700;
 }
+
+.player-info ul {
+	display: flex;
+	list-style-type: none;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0;
+}
+
+.player-info ul li {
+	display: block;
+	margin-right: 1rem;
+}

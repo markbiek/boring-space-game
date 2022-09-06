@@ -8,7 +8,7 @@ export interface CargoItem {
 }
 
 export interface Ship {
-	fuel: number;
+	fuel: number; // 5 fuel per hop
 	fuel_size: number;
 	cargo_size: number;
 	cargo: CargoItem[] | null;
@@ -24,14 +24,16 @@ export interface Player {
 
 export interface TradeItem {
 	name: string;
-	quantity: number;
 	weight: number;
 	purchase_price: number;
+	// 1 is least available
+	availability: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+	quantity?: number;
 }
 
 export interface Mission {
 	description: string;
-	type: 'trade';
+	type: string;
 	amount: number;
 	source: Planet;
 	destination: Planet;
@@ -44,6 +46,8 @@ export interface Planet {
 	has_missions: boolean;
 	has_trade: boolean;
 	has_gambling: boolean;
+	trade_items?: TradeItem[];
+	missions?: Mission[];
 }
 
 export interface SolarSystem {
@@ -54,5 +58,8 @@ export interface SolarSystem {
 }
 
 export interface Universe {
-	[index: string]: SolarSystem;
+	solar_systems: {
+		[index: string]: SolarSystem;
+	};
+	trade_items: TradeItem[];
 }

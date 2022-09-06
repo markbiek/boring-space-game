@@ -11,7 +11,7 @@ export default function SolarSystemView() {
 	const [landed, setLanded] = useState(false);
 	const [landedPlanet, setLandedPlanet] = useState<PlanetType | null>(null);
 	const location = useAppSelector(playerLocation);
-	const solarSystem = universe[location];
+	const solarSystem = universe.solar_systems[location];
 
 	const { name, description, planets } = solarSystem;
 
@@ -20,7 +20,7 @@ export default function SolarSystemView() {
 			return null;
 		}
 
-		const { name, fuel, gambling, trade } = landedPlanet;
+		const { name, has_fuel, has_gambling, has_missions, has_trade } = landedPlanet;
 
 		console.log(landedPlanet);
 
@@ -37,9 +37,10 @@ export default function SolarSystemView() {
 				>
 					Return to Orbit
 				</button>
-				{fuel && <p>Fuel available</p>}
-				{trade && <p>Trade available</p>}
-				{gambling && <p>Gambling available</p>}
+				{has_fuel && <p>Fuel available</p>}
+				{has_trade && <p>Trading available</p>}
+				{has_missions && <p>Missions available</p>}
+				{has_gambling && <p>Gambling available</p>}
 			</div>
 		);
 	};

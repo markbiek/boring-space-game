@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 
 import { setView, currentView } from '../store/reducers/view';
+import { playerName, playerCredits } from '../store/reducers/player';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 
 import { StartView, SolarSystemView } from './';
+import PlayerHeader from '../components/PlayerHeader';
 
 interface ViewComponents {
 	[index: string]: JSX.Element;
@@ -11,6 +13,8 @@ interface ViewComponents {
 
 export default function GameView() {
 	const view = useAppSelector(currentView);
+	const player = useAppSelector(playerName);
+	const credits = useAppSelector(playerCredits);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -26,5 +30,10 @@ export default function GameView() {
 		return <h1>Error: View {view} not found.</h1>;
 	}
 
-	return viewComponents[view];
+	return (
+		<>
+			<PlayerHeader />
+			{viewComponents[view]}
+		</>
+	);
 }

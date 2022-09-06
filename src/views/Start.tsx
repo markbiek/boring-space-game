@@ -13,8 +13,6 @@ export default function StartView() {
 	const shipNameRef = useRef<HTMLInputElement>(null);
 	const dispatch = useAppDispatch();
 
-	console.log('Trade Items:', pickTradeItems());
-
 	return (
 		<div className="view">
 			<h1>Welcome to Boring Space Game!</h1>

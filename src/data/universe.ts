@@ -69,7 +69,19 @@ const universe: Universe = {
 			availability: 7,
 		},
 		{
+			name: 'Hydrogen',
+			weight: 15,
+			purchase_price: 45,
+			availability: 7,
+		},
+		{
 			name: 'Gold',
+			weight: 50,
+			purchase_price: 250,
+			availability: 8,
+		},
+		{
+			name: 'Uranium',
 			weight: 100,
 			purchase_price: 20,
 			availability: 3,
