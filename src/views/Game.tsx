@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { setView, currentView, currentSubview } from '../store/reducers/view';
+import { setView, currentView } from '../store/reducers/view';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 
 import { StartView, SolarSystemView } from './';
@@ -11,7 +11,6 @@ interface ViewComponents {
 
 export default function GameView() {
 	const view = useAppSelector(currentView);
-	const subview = useAppSelector(currentSubview);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -19,8 +18,8 @@ export default function GameView() {
 	}, []);
 
 	const viewComponents: ViewComponents = {
-		start: <StartView subview={subview} />,
-		solarsystem: <SolarSystemView subview={subview} />,
+		start: <StartView />,
+		solarsystem: <SolarSystemView />,
 	};
 
 	if (!viewComponents.hasOwnProperty(view)) {

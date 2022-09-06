@@ -5,7 +5,7 @@ import universe from '../data/universe';
 
 import { ViewProps } from '../types';
 
-export default function SolarSystemView({ subview }: ViewProps) {
+export default function SolarSystemView() {
 	const location = useAppSelector(playerLocation);
 	const solarSystem = universe[location];
 

@@ -1,8 +1,6 @@
 export interface State {}
 
-export interface ViewProps {
-	subview: string;
-}
+export interface ViewProps {}
 
 export interface Ship {
 	fuel: number;

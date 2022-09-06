@@ -6,7 +6,7 @@ import { setPlayerName, setShipName } from '../store/reducers/player';
 
 import { ViewProps } from '../types';
 
-export default function StartView({ subview }: ViewProps) {
+export default function StartView() {
 	const playerNameRef = useRef<HTMLInputElement>(null);
 	const shipNameRef = useRef<HTMLInputElement>(null);
 	const dispatch = useAppDispatch();
