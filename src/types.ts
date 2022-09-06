@@ -14,7 +14,7 @@ export interface Player {
 	name: string;
 	ship: Ship;
 	credits: number;
-	current_location: SolarSystem;
+	current_solar_system: string;
 	missions: Mission[];
 }
 
@@ -38,5 +38,9 @@ export interface SolarSystem {
 	name: string;
 	description: string;
 	planets: Planet[] | null;
-	connected_systems: SolarSystem[];
+	connected_systems: string[];
+}
+
+export interface Universe {
+	[index: string]: SolarSystem;
 }

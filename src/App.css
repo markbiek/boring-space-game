@@ -1,8 +1,74 @@
+:root {
+	--primary-font: 'Cutive Mono', monospace;
+
+	--white: #fff;
+	--black: #16161d;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--primary-font);
+	font-size: 16px;
+	background: var(--black);
+	color: var(--white);
+}
+
+main {
+	padding: 0.5rem;
+}
+
+h1 {
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 form label {
 	display: block;
 	margin-bottom: 0.5rem;
 }
 
+button {
+	font-family: var(--primary-font);
+	background: var(--black);
+	color: var(--white);
+	outline: none;
+	border: 1px solid var(--white);
+}
+
+button:hover,
+button:focus {
+	border-color: var(--black);
+	cursor: pointer;
+	background: var(--white);
+	color: var(--black);
+}
+
+input[type=text] {
+	background: var(--black);
+	color: var(--white);
+	outline: none;
+	border: 1px solid var(--white);
+}
+
 .input-group {
 	margin-bottom: 0.5rem;
+}
+
+.planet {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.planet .planet-details {
+	margin-right: 1rem;
+}
+
+.planet .planet-details .planet-name {
+	font-size: 1.125rem;
+	font-weight: 700;
 }

@@ -8,9 +8,9 @@ import { GameView } from './views';
 function App() {
 	return (
 		<Provider store={store}>
-			<div className="App">
+			<main className="App">
 				<GameView />
-			</div>
+			</main>
 		</Provider>
 	);
 }

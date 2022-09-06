@@ -5,12 +5,14 @@ export interface PlayerState {
 	player_name: string;
 	ship_name: string;
 	ship_type: 'shuttle';
+	location: string;
 }
 
 const initialState = {
 	name: '',
 	ship_name: '',
 	ship_type: 'shuttle',
+	location: 'azura',
 };
 
 export const playerSlice = createSlice({
@@ -26,11 +28,15 @@ export const playerSlice = createSlice({
 		setShipType: (state, action: PayloadAction<string>) => {
 			state.ship_type = action.payload;
 		},
+		setLocation: (state, action: PayloadAction<string>) => {
+			state.location = action.payload;
+		},
 	},
 });
 
-export const { setPlayerName, setShipName, setShipType } = playerSlice.actions;
+export const { setPlayerName, setShipName, setShipType, setLocation } = playerSlice.actions;
 
 export const playerName = (state: RootState) => state.player.name;
+export const playerLocation = (state: RootState) => state.player.location;
 
 export default playerSlice.reducer;

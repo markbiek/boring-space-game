@@ -25,7 +25,7 @@ export default function StartView({ subview }: ViewProps) {
 						return;
 					}
 
-					dispatch(setView('solar-system'));
+					dispatch(setView('solarsystem'));
 					dispatch(setPlayerName(playerNameRef.current.value));
 					dispatch(setShipName(shipNameRef.current.value));
 				}}
@@ -41,7 +41,7 @@ export default function StartView({ subview }: ViewProps) {
 				</div>
 
 				<div className="input-group">
-					<button type="submit">Start Game</button>
+					<button>Start Game</button>
 				</div>
 			</form>
 		</div>
