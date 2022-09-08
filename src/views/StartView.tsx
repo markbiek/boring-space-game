@@ -4,10 +4,6 @@ import { useAppDispatch } from '../store/hooks';
 import { setView } from '../store/reducers/view';
 import { setPlayerName, setShipName } from '../store/reducers/player';
 
-import { ViewProps } from '../types';
-
-import { pickTradeItems } from '../utils';
-
 export default function StartView() {
 	const playerNameRef = useRef<HTMLInputElement>(null);
 	const shipNameRef = useRef<HTMLInputElement>(null);

@@ -4,7 +4,7 @@ import { setView, currentView } from '../store/reducers/view';
 import { playerName, playerCredits } from '../store/reducers/player';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 
-import { StartView, SolarSystemView } from './';
+import { StartView, SolarSystemView } from '.';
 import PlayerHeader from '../components/PlayerHeader';
 
 interface ViewComponents {
