@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 
 import { setView, currentView } from '../store/reducers/view';
-import { playerName, playerCredits } from '../store/reducers/player';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 
-import { StartView, SolarSystemView } from '.';
+import { MapView, StartView, SolarSystemView } from '.';
 import PlayerHeader from '../components/PlayerHeader';
 
 interface ViewComponents {
@@ -13,8 +12,6 @@ interface ViewComponents {
 
 export default function GameView() {
 	const view = useAppSelector(currentView);
-	const player = useAppSelector(playerName);
-	const credits = useAppSelector(playerCredits);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -24,6 +21,7 @@ export default function GameView() {
 	const viewComponents: ViewComponents = {
 		start: <StartView />,
 		solarsystem: <SolarSystemView />,
+		map: <MapView />,
 	};
 
 	if (!viewComponents.hasOwnProperty(view)) {

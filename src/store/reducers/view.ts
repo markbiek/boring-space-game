@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
 
-export type AvailableViews = 'start' | 'solarsystem';
+export type AvailableViews = 'start' | 'solarsystem' | 'map';
 
 export interface ViewState {
 	current_view: AvailableViews;

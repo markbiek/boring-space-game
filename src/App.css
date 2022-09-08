@@ -3,6 +3,7 @@
 
 	--white: #fff;
 	--black: #16161d;
+	--selected: #000099;
 }
 
 * {
@@ -24,6 +25,11 @@ h1 {
 	font-size: 18px;
 	font-weight: bold;
 	text-decoration: underline;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
 }
 
 form label {
@@ -75,13 +81,33 @@ input[type=text] {
 
 .player-info ul {
 	display: flex;
-	list-style-type: none;
 	justify-content: flex-start;
 	align-items: center;
-	padding: 0;
 }
 
 .player-info ul li {
 	display: block;
 	margin-right: 1rem;
+}
+
+.solar-systems .solar-system {
+	display: block;
+	border: 1px solid var(--white);
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+}
+
+.solar-systems .solar-system.active {
+	font-weight: bold;
+	font-size: 1.125rem;
+	border-color: var(--selected);
+	border-width: 2px;
+}
+
+.solar-systems .solar-system .info {
+	font-size: 0.8rem;
+}
+
+.solar-systems .solar-system .info .connected-system {
+	padding-right: 0.5rem;
 }

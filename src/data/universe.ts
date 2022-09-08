@@ -118,7 +118,23 @@ const universe: Universe = {
 					has_gambling: false,
 				},
 			],
-			connected_systems: ['azura'],
+			connected_systems: ['azura', 'phantom'],
+		},
+		phantom: {
+			name: 'Phantom',
+			description:
+				'Vivamus eget est sollicitudin, viverra lorem et, vestibulum erat. Cras rhoncus venenatis commodo.',
+			planets: [
+				{
+					name: 'Daydream',
+					description: 'Donec ac purus eros.',
+					has_fuel: true,
+					has_missions: true,
+					has_trade: true,
+					has_gambling: false,
+				},
+			],
+			connected_systems: ['elysium'],
 		},
 	},
 };

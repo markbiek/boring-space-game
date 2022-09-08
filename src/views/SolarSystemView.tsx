@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { useAppSelector } from '../store/hooks';
+
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { setView } from '../store/reducers/view';
 
 import { playerLocation } from '../store/reducers/player';
-import PlanetList from '../components/PlanetList';
 import Planet from '../components/Planet';
 import SolarSystem from '../components/SolarSystem';
 
@@ -10,6 +11,7 @@ import { Planet as PlanetType } from '../types';
 import universe from '../data/universe';
 
 export default function SolarSystemView() {
+	const dispatch = useAppDispatch();
 	const [landed, setLanded] = useState(false);
 	const [landedPlanet, setLandedPlanet] = useState<PlanetType | null>(null);
 	const location = useAppSelector(playerLocation);
@@ -24,12 +26,22 @@ export default function SolarSystemView() {
 			}}
 		/>
 	) : (
-		<SolarSystem
-			solarSystem={solarSystem}
-			onLand={(planet: PlanetType) => {
-				setLandedPlanet(planet);
-				setLanded(true);
-			}}
-		/>
+		<>
+			<button
+				onClick={(e) => {
+					e.preventDefault();
+					dispatch(setView('map'));
+				}}
+			>
+				Map
+			</button>
+			<SolarSystem
+				solarSystem={solarSystem}
+				onLand={(planet: PlanetType) => {
+					setLandedPlanet(planet);
+					setLanded(true);
+				}}
+			/>
+		</>
 	);
 }
