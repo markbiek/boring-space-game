@@ -2,32 +2,34 @@ import { Planet as PlanetType } from '../types';
 
 interface PlanetProps {
 	planet: PlanetType;
-	onLand: () => void;
+	returnToOrbit: () => void;
 }
 
-export default function Planet({ planet, onLand }: PlanetProps) {
-	const { name, description } = planet;
+export default function Planet({ planet, returnToOrbit }: PlanetProps) {
+	if (!planet) {
+		return null;
+	}
+
+	const { name, has_fuel, has_gambling, has_missions, has_trade } = planet;
+
+	console.log(planet);
 
 	return (
-		<div className="planet">
-			<div className="planet-details">
-				<p>
-					<span className="planet-name">{name}</span>
-					<br />
-					{description}
-				</p>
-			</div>
-			<div className="planet-controls">
-				<button
-					onClick={(e) => {
-						e.preventDefault();
+		<div>
+			<p>Landed on {name}</p>
+			<button
+				onClick={(e) => {
+					e.preventDefault();
 
-						onLand();
-					}}
-				>
-					Land
-				</button>
-			</div>
+					returnToOrbit();
+				}}
+			>
+				Return to Orbit
+			</button>
+			{has_fuel && <p>Fuel available</p>}
+			{has_trade && <p>Trading available</p>}
+			{has_missions && <p>Missions available</p>}
+			{has_gambling && <p>Gambling available</p>}
 		</div>
 	);
 }
