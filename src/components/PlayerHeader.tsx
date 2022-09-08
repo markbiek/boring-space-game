@@ -19,7 +19,7 @@ export default function PlayerHeader() {
 				<li>Credits: {credits}</li>
 			</ul>
 			<ul className="player-ship">
-				<li>Hops: {hops}</li>
+				<li className={`${hops > 0 ? '' : 'low-fuel'}`}>Hops: {hops}</li>
 			</ul>
 		</header>
 	);

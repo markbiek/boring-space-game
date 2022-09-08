@@ -4,6 +4,7 @@
 	--white: #fff;
 	--black: #16161d;
 	--selected: #000099;
+	--danger: #ff6666;
 }
 
 * {
@@ -88,6 +89,10 @@ input[type=text] {
 .player-info ul li {
 	display: block;
 	margin-right: 1rem;
+}
+
+.player-info .low-fuel {
+	color: var(--danger);
 }
 
 .solar-systems .solar-system {

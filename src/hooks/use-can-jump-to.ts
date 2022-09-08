@@ -16,12 +16,6 @@ export default function useCanJumpTo(sourceName: string): (name: string) => bool
 		if (ship.fuel - HOP_FUEL < 0) {
 			return false;
 		}
-		console.log(
-			'canJumpTo',
-			sourceName,
-			destinationName,
-			source.connected_systems.includes(destinationName)
-		);
 
 		return source.connected_systems.includes(destinationName);
 	};

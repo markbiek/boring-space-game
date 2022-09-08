@@ -3,8 +3,8 @@ import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { playerLocation, setLocation } from '../store/reducers/player';
 
 import useCanJumpTo from '../hooks/use-can-jump-to';
+import useJumpTo from '../hooks/use-jump-to';
 
-import { SolarSystem } from '../types';
 import universe from '../data/universe';
 
 export default function MapView() {
@@ -14,6 +14,7 @@ export default function MapView() {
 	const canJumpTo = useCanJumpTo(location);
 
 	const solarSystemInfo = (solarSystemName: string) => {
+		const jumpTo = useJumpTo();
 		const solarSystem = solarSystems[solarSystemName];
 		const { planets, connected_systems } = solarSystem;
 
@@ -43,8 +44,7 @@ export default function MapView() {
 										onClick={(e) => {
 											e.preventDefault();
 
-											dispatch(setLocation(key));
-											dispatch(setView('solarsystem'));
+											jumpTo(key);
 										}}
 									>
 										{name}

@@ -1,5 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { RootState } from '../index';
+
+import { HOP_FUEL } from '../../constants';
 
 export interface PlayerState {
 	player_name: string;
@@ -42,10 +45,13 @@ export const playerSlice = createSlice({
 		setCredits: (state, action: PayloadAction<number>) => {
 			state.credits = action.payload;
 		},
+		useFuel: (state) => {
+			state.ship.fuel -= HOP_FUEL;
+		},
 	},
 });
 
-export const { setCredits, setPlayerName, setShipName, setShipType, setLocation } =
+export const { setCredits, setPlayerName, setShipName, setShipType, setLocation, useFuel } =
 	playerSlice.actions;
 
 export const playerName = (state: RootState) => state.player.name;
