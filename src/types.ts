@@ -5,13 +5,14 @@ export interface ViewProps {}
 export interface CargoItem {
 	weight: number;
 	name: string;
+	item: TradeItem;
 }
 
 export interface Ship {
 	fuel: number; // 5 fuel per hop
 	fuel_size: number;
-	cargo_size: number;
-	cargo: CargoItem[] | null;
+	cargo_size: number; // This is the amount of weight available
+	cargo: CargoItem[];
 }
 
 export interface Player {
@@ -29,6 +30,7 @@ export interface TradeItem {
 	// 1 is least available
 	availability: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 	quantity?: number;
+	current_price?: number;
 }
 
 export interface Mission {
@@ -37,6 +39,7 @@ export interface Mission {
 	amount: number;
 	source: Planet;
 	destination: Planet;
+	weight: number;
 }
 
 export interface Planet {

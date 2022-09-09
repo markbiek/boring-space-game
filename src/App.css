@@ -128,3 +128,15 @@ input[type=text] {
 .planet-details .planet-actions button {
 	margin-right: 1rem;
 }
+
+.planet-details .planet-trade table {
+	width: 100%;
+}
+
+.planet-details .planet-trade table th {
+	text-align: left;
+}
+
+.planet-details .planet-trade .trade-item-qty {
+	font-size: 0.8rem;
+}

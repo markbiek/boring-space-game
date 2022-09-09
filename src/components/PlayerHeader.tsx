@@ -1,5 +1,10 @@
 import { currentView } from '../store/reducers/view';
-import { playerName, playerCredits, playerHopsRemaining } from '../store/reducers/player';
+import {
+	playerName,
+	playerCredits,
+	playerHopsRemaining,
+	playerAvailableCargo,
+} from '../store/reducers/player';
 import { useAppSelector } from '../store/hooks';
 
 export default function PlayerHeader() {
@@ -7,6 +12,7 @@ export default function PlayerHeader() {
 	const player = useAppSelector(playerName);
 	const credits = useAppSelector(playerCredits);
 	const hops = useAppSelector(playerHopsRemaining);
+	const cargoSize = useAppSelector(playerAvailableCargo);
 
 	if (view === 'start') {
 		return null;
@@ -20,6 +26,7 @@ export default function PlayerHeader() {
 			</ul>
 			<ul className="player-ship">
 				<li className={`${hops > 0 ? '' : 'low-fuel'}`}>Hops: {hops}</li>
+				<li>Available Cargo: {cargoSize}</li>
 			</ul>
 		</header>
 	);
