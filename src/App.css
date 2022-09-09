@@ -116,3 +116,15 @@ input[type=text] {
 .solar-systems .solar-system .info .connected-system {
 	padding-right: 0.5rem;
 }
+
+.planet-details .planet-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	margin-top: 1rem;
+}
+
+.planet-details .planet-actions button {
+	margin-right: 1rem;
+}

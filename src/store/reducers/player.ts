@@ -48,10 +48,31 @@ export const playerSlice = createSlice({
 		useFuel: (state) => {
 			state.ship.fuel -= HOP_FUEL;
 		},
+		refuel: (state) => {
+			const {
+				ship: { fuel_size, fuel },
+				credits,
+			} = state;
+			const fuelAmount = fuel_size - fuel;
+
+			// They don't actually need fuel
+			if (fuelAmount <= 0) {
+				return;
+			}
+
+			// They don't have enough money to refuel
+			if (credits - fuelAmount < 0) {
+				// TODO - Need to display a message or something
+				return;
+			}
+
+			state.ship.fuel = state.ship.fuel_size;
+			state.credits = credits - fuelAmount;
+		},
 	},
 });
 
-export const { setCredits, setPlayerName, setShipName, setShipType, setLocation, useFuel } =
+export const { setCredits, setPlayerName, setShipName, setShipType, setLocation, useFuel, refuel } =
 	playerSlice.actions;
 
 export const playerName = (state: RootState) => state.player.name;

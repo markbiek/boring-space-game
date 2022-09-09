@@ -1,3 +1,6 @@
+import { useAppDispatch } from '../store/hooks';
+import { refuel } from '../store/reducers/player';
+
 import { Planet as PlanetType } from '../types';
 
 interface PlanetProps {
@@ -6,16 +9,30 @@ interface PlanetProps {
 }
 
 export default function Planet({ planet, returnToOrbit }: PlanetProps) {
+	const dispatch = useAppDispatch();
+
 	if (!planet) {
 		return null;
 	}
 
 	const { name, has_fuel, has_gambling, has_missions, has_trade } = planet;
 
-	console.log(planet);
+	const refuelShip = () => {
+		return (
+			<button
+				onClick={(e) => {
+					e.preventDefault();
+
+					dispatch(refuel());
+				}}
+			>
+				Refuel
+			</button>
+		);
+	};
 
 	return (
-		<div>
+		<div className="planet-details">
 			<p>Landed on {name}</p>
 			<button
 				onClick={(e) => {
@@ -26,10 +43,12 @@ export default function Planet({ planet, returnToOrbit }: PlanetProps) {
 			>
 				Return to Orbit
 			</button>
-			{has_fuel && <p>Fuel available</p>}
-			{has_trade && <p>Trading available</p>}
-			{has_missions && <p>Missions available</p>}
-			{has_gambling && <p>Gambling available</p>}
+			<div className="planet-actions">
+				{has_fuel && refuelShip()}
+				{has_trade && <button>Trade</button>}
+				{has_missions && <button>Missions</button>}
+				{has_gambling && <button>Gamble</button>}
+			</div>
 		</div>
 	);
 }

@@ -3,6 +3,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { playerReducer, viewReducer } from './reducers';
 
 export const store = configureStore({
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: {
+				ignoredActions: ['refuel'],
+			},
+		}),
 	reducer: {
 		player: playerReducer,
 		view: viewReducer,
