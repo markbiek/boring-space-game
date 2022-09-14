@@ -58,6 +58,7 @@ export interface SolarSystem {
 	description: string;
 	planets: Planet[] | null;
 	connected_systems: string[];
+	depth?: number;
 }
 
 export interface Universe {

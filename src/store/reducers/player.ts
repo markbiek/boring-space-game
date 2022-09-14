@@ -17,7 +17,7 @@ const initialState = {
 	name: '',
 	ship_name: '',
 	ship_type: 'shuttle',
-	location: 'azura',
+	location: 'sol',
 	credits: 100,
 	ship: {
 		fuel: 10,
