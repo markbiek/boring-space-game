@@ -95,6 +95,10 @@ input[type=text] {
 	color: var(--danger);
 }
 
+.player-info .cargo-details {
+	width: 75%;
+}
+
 .solar-systems .solar-system {
 	display: block;
 	border: 1px solid var(--white);
