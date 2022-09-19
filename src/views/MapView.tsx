@@ -23,10 +23,12 @@ export default function MapView() {
 				<p>
 					Planets:
 					<br />
-					{planets?.map((planet) => {
-						const { name } = planet;
-						return `${name}, `;
-					})}
+					{planets && planets?.length <= 0 && <span>No planets</span>}
+					{planets &&
+						planets?.map((planet) => {
+							const { name } = planet;
+							return `${name}, `;
+						})}
 				</p>
 				<p>
 					Connected Systems:
@@ -46,6 +48,7 @@ export default function MapView() {
 
 											jumpTo(key);
 										}}
+										className="btn-connected-system"
 									>
 										{name}
 									</button>
