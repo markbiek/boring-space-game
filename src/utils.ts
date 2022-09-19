@@ -30,7 +30,7 @@ export function pickTradeItems(numItems = 5): TradeItem[] {
 					item.availability === availability - 1) &&
 				!returnItems.hasOwnProperty(item.name)
 			) {
-				foundItem = item;
+				foundItem = { ...item };
 				foundItem.quantity = Math.floor(Math.random() * 99) + 1;
 				break;
 			}
