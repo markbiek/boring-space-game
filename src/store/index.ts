@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { playerReducer, viewReducer } from './reducers';
+import { playerReducer, viewReducer, universeReducer } from './reducers';
 
 export const store = configureStore({
 	middleware: (getDefaultMiddleware) =>
@@ -12,6 +12,7 @@ export const store = configureStore({
 	reducer: {
 		player: playerReducer,
 		view: viewReducer,
+		universe: universeReducer,
 	},
 });
 
