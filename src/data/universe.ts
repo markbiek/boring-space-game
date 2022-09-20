@@ -89,7 +89,16 @@ const universe: Universe = {
 	],
 	solar_systems: {
 		sol: {
-			connected_systems: ['azura'],
+			connected_systems: [
+				'azura',
+				'archenar',
+				'nesre primus',
+				'tichel',
+				'alphara',
+				'tau ceti',
+				'kerella',
+				'nesre secundus',
+			],
 			name: 'Sol',
 			description:
 				'Vivamus eget est sollicitudin, viverra lorem et, vestibulum erat. Cras rhoncus venenatis commodo.',
@@ -180,7 +189,7 @@ const universe: Universe = {
 			planets: [],
 		},
 		archenar: {
-			connected_systems: ['phantom', 'centauri', 'lotus', 'hannaford'],
+			connected_systems: ['sol', 'phantom', 'centauri', 'lotus', 'hannaford'],
 			name: 'Archenar',
 			description:
 				'Vivamus eget est sollicitudin, viverra lorem et, vestibulum erat. Cras rhoncus venenatis commodo.',
@@ -254,7 +263,7 @@ const universe: Universe = {
 			],
 		},
 		'nesre primus': {
-			connected_systems: ['hannaford', 'aldebaran'],
+			connected_systems: ['sol', 'hannaford', 'aldebaran'],
 			name: 'Nesre Primus',
 			description:
 				'Vivamus eget est sollicitudin, viverra lorem et, vestibulum erat. Cras rhoncus venenatis commodo.',
@@ -992,7 +1001,7 @@ const universe: Universe = {
 			],
 		},
 		tichel: {
-			connected_systems: ['spc-020', 'fomalhaut'],
+			connected_systems: ['sol', 'spc-020', 'fomalhaut'],
 			name: 'Tichel',
 			description:
 				'Vivamus eget est sollicitudin, viverra lorem et, vestibulum erat. Cras rhoncus venenatis commodo.',
@@ -1275,7 +1284,7 @@ const universe: Universe = {
 			],
 		},
 		alphara: {
-			connected_systems: ['ngc-2051', 'vega'],
+			connected_systems: ['sol', 'ngc-2051', 'vega'],
 			name: 'Alphara',
 			description:
 				'Vivamus eget est sollicitudin, viverra lorem et, vestibulum erat. Cras rhoncus venenatis commodo.',
@@ -1623,7 +1632,7 @@ const universe: Universe = {
 			],
 		},
 		'tau ceti': {
-			connected_systems: ['heraan', 'sanddown', 'merrynne', 'enlightenment'],
+			connected_systems: ['sol', 'heraan', 'sanddown', 'merrynne', 'enlightenment'],
 			name: 'Tau Ceti',
 			description:
 				'Vivamus eget est sollicitudin, viverra lorem et, vestibulum erat. Cras rhoncus venenatis commodo.',
@@ -1706,7 +1715,7 @@ const universe: Universe = {
 			],
 		},
 		kerella: {
-			connected_systems: ['enlightenment', 'sirius'],
+			connected_systems: ['sol', 'enlightenment', 'sirius'],
 			name: 'Kerella',
 			description:
 				'Vivamus eget est sollicitudin, viverra lorem et, vestibulum erat. Cras rhoncus venenatis commodo.',
@@ -2120,7 +2129,7 @@ const universe: Universe = {
 			],
 		},
 		'nesre secundus': {
-			connected_systems: ['trishka', 'hjg-0637'],
+			connected_systems: ['sol', 'trishka', 'hjg-0637'],
 			name: 'Nesre Secundus',
 			description:
 				'Vivamus eget est sollicitudin, viverra lorem et, vestibulum erat. Cras rhoncus venenatis commodo.',
