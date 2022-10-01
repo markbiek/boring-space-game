@@ -67,13 +67,15 @@ export default function PlayerHeader() {
 				<li className={`${hops > 0 ? '' : 'low-fuel'}`}>Hops: {hops}</li>
 				<li>Available Cargo: {cargoSize}</li>
 			</ul>
-			<button
-				onClick={(e) => {
-					setShowCargo(!showCargo);
-				}}
-			>
-				{showCargo ? 'Hide Cargo' : 'Show Cargo'}
-			</button>
+			{ship.cargo.length > 0 && (
+				<button
+					onClick={(e) => {
+						setShowCargo(!showCargo);
+					}}
+				>
+					{showCargo ? 'Hide Cargo' : 'Show Cargo'}
+				</button>
+			)}
 			{showCargo && cargoDetails()}
 		</header>
 	);
