@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { setView } from '../store/reducers/view';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { playerLocation } from '../store/reducers/player';
@@ -14,6 +16,10 @@ export default function MapView() {
 	const solarSystems = universe.solar_systems;
 	const canJumpTo = useCanJumpTo(location);
 	const isSystemVisible = useSystemVisible();
+
+	useEffect(() => {
+		document.querySelector('.solar-systems .solar-system.active')?.scrollIntoView();
+	}, []);
 
 	const solarSystemInfo = (solarSystemName: string) => {
 		const jumpTo = useJumpTo();
@@ -83,9 +89,11 @@ export default function MapView() {
 							return null;
 						}
 
+						const active = location === key;
+
 						return (
 							<li
-								className={`solar-system ${location === key ? 'active' : ''} 
+								className={`solar-system ${active ? 'active' : ''} 
 							`}
 							>
 								{name}
