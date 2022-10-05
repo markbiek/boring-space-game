@@ -80,6 +80,10 @@ input[type=text] {
 	font-weight: 700;
 }
 
+.player-info {
+	margin-bottom: 1rem;
+}
+
 .player-info ul {
 	display: flex;
 	justify-content: flex-start;
