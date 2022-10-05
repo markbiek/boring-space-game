@@ -14,8 +14,8 @@ export default function SolarSystemView() {
 	const dispatch = useAppDispatch();
 	const [landed, setLanded] = useState(false);
 	const [landedPlanet, setLandedPlanet] = useState<PlanetType | null>(null);
-	const location = useAppSelector(playerLocation);
-	const solarSystem = universe.solar_systems[location];
+	const systemKey = useAppSelector(playerLocation);
+	const solarSystem = universe.solar_systems[systemKey];
 
 	return landed && landedPlanet ? (
 		<Planet

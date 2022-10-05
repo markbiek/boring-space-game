@@ -8,14 +8,14 @@ import universe from '../data/universe';
 export default function useJumpTo() {
 	const dispatch = useAppDispatch();
 
-	return (destinationName: string) => {
+	return (systemKey: string) => {
 		dispatch(useFuel());
-		dispatch(setLocation(destinationName));
+		dispatch(setLocation(systemKey));
 		dispatch(setView('solarsystem'));
 
 		// Set visibility for connected systems
 		const { solar_systems } = universe;
-		const { connected_systems } = solar_systems[destinationName];
+		const { connected_systems } = solar_systems[systemKey];
 
 		for (const system of connected_systems) {
 			dispatch(

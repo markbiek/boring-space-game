@@ -12,9 +12,9 @@ import universe from '../data/universe';
 
 export default function MapView() {
 	const dispatch = useAppDispatch();
-	const location = useAppSelector(playerLocation);
+	const systemKey = useAppSelector(playerLocation);
 	const solarSystems = universe.solar_systems;
-	const canJumpTo = useCanJumpTo(location);
+	const canJumpTo = useCanJumpTo(systemKey);
 	const isSystemVisible = useSystemVisible();
 
 	useEffect(() => {
@@ -47,9 +47,9 @@ export default function MapView() {
 
 						return (
 							<>
-								{solarSystemName !== location && <span className="connected-system">{name}</span>}
+								{solarSystemName !== systemKey && <span className="connected-system">{name}</span>}
 
-								{solarSystemName === location && canJumpTo(key) && (
+								{solarSystemName === systemKey && canJumpTo(key) && (
 									<button
 										onClick={(e) => {
 											e.preventDefault();
@@ -89,7 +89,7 @@ export default function MapView() {
 							return null;
 						}
 
-						const active = location === key;
+						const active = systemKey === key;
 
 						return (
 							<li
