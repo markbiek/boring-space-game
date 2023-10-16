@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 
-import { setView } from '../store/reducers/view';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { playerLocation } from '../store/reducers/player';
+import { setView } from '../../store/reducers/view';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { playerLocation } from '../../store/reducers/player';
 
-import useCanJumpTo from '../hooks/use-can-jump-to';
-import useJumpTo from '../hooks/use-jump-to';
-import useSystemVisible from '../hooks/use-system-visible';
+import useCanJumpTo from '../../hooks/use-can-jump-to';
+import useJumpTo from '../../hooks/use-jump-to';
+import useSystemVisible from '../../hooks/use-system-visible';
 
-import universe from '../data/universe';
+import universe from '../../data/universe';
 
 export default function MapView() {
 	const dispatch = useAppDispatch();
