@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 import { setView } from '../../store/reducers/view';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -16,6 +17,25 @@ export default function MapView() {
 	const solarSystems = universe.solar_systems;
 	const canJumpTo = useCanJumpTo(systemKey);
 	const isSystemVisible = useSystemVisible();
+
+	const handleSystemClick = (planetName: string) => {
+		console.log(planetName);
+	};
+
+	useEffect(() => {
+		const radius = 300; // distance from the center
+		const center = { x: 500, y: 500 }; // center of the circle
+		let angleIncrement = (2 * Math.PI) / Object.keys(solarSystems).length;
+		let angle = 0;
+
+		const newSystems = Object.keys(solarSystems).map((key) => {
+			const system = solarSystems[key];
+			const x = center.x + radius * Math.cos(angle);
+			const y = center.y + radius * Math.sin(angle);
+			angle += angleIncrement;
+			return { ...system, x, y };
+		});
+	}, []);
 
 	useEffect(() => {
 		document.querySelector('.solar-systems .solar-system.active')?.scrollIntoView();
